@@ -1,8 +1,8 @@
 name: CuratorSearch
 description: >-
-  Live museum, gallery and curatorial job listings gathered daily from 400+ institutions' own career pages, plus a
-  permanently archived advertised-salary dataset. Exposes a public REST/JSON API, a hosted MCP server, and llms.txt for
-  both programs and AI assistants.
+  An independent, daily-refreshed record of museum/gallery/curatorial vacancies and advertised salaries, aggregated from
+  400+ institutions' careers pages. Exposes a keyless REST/JSON API, an OpenAPI 3.1 contract, a hosted MCP server,
+  llms.txt, open datasets (CC BY 4.0, with DOI), and RSS.
 url: https://raw.githubusercontent.com/api-evangelist/curatorsearch/refs/heads/main/apis.yml
 created: '2026-09-19'
 modified: '2026-09-19'
@@ -19,12 +19,20 @@ tags:
   - curatorial
   - salary-transparency
   - glam
+  - museum jobs
+  - cultural heritage
+  - job board
+  - salaries
+  - pay transparency
+  - open data
+  - dataset
+  - MCP
+  - RSS
 apis:
   - name: CuratorSearch API
     description: >-
-      REST/JSON API over the live curatorial jobs board and salary archive: searchJobs (GET /api/jobs), getJob (GET
-      /api/jobs/{slug}), and salaryArchive (GET /data/curatorial-salaries.json). Also a hosted MCP server with four
-      read-only tools and llms.txt/llms-full.txt. No key required for public read access.
+      Keyless, read-only REST/JSON API for searching museum/curatorial vacancies and retrieving individual listings,
+      plus the full advertised-salary archive. Documented via a live OpenAPI 3.1 contract.
     humanURL: https://curatorsearch.com/developers
     baseURL: https://curatorsearch.com
     tags:
@@ -39,6 +47,15 @@ apis:
       - curatorial
       - salary-transparency
       - glam
+      - museum jobs
+      - cultural heritage
+      - job board
+      - salaries
+      - pay transparency
+      - open data
+      - dataset
+      - MCP
+      - RSS
     properties:
       - type: OpenAPI
         url: https://curatorsearch.com/openapi.json
@@ -53,8 +70,10 @@ apis:
 maintainers:
   - FN: Nadim Samman
     url: https://curatorsearch.com
+  - FN: Nadim Samman
+    url: https://orcid.org/0009-0001-5801-4662
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 97
-  at: '2026-09-19T20:51:32.387Z'
+  at: '2026-09-19T20:58:51.207Z'
