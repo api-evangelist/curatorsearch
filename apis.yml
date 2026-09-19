@@ -1,0 +1,60 @@
+name: CuratorSearch
+description: >-
+  Live museum, gallery and curatorial job listings gathered daily from 400+ institutions' own career pages, plus a
+  permanently archived advertised-salary dataset. Exposes a public REST/JSON API, a hosted MCP server, and llms.txt for
+  both programs and AI assistants.
+url: https://raw.githubusercontent.com/api-evangelist/curatorsearch/refs/heads/main/apis.yml
+created: '2026-09-19'
+modified: '2026-09-19'
+specificationVersion: '0.21'
+tags:
+  - agent-native
+  - mcp
+  - openapi
+  - llms-txt
+  - open-data
+  - jobs
+  - cultural-heritage
+  - museums
+  - curatorial
+  - salary-transparency
+  - glam
+apis:
+  - name: CuratorSearch API
+    description: >-
+      REST/JSON API over the live curatorial jobs board and salary archive: searchJobs (GET /api/jobs), getJob (GET
+      /api/jobs/{slug}), and salaryArchive (GET /data/curatorial-salaries.json). Also a hosted MCP server with four
+      read-only tools and llms.txt/llms-full.txt. No key required for public read access.
+    humanURL: https://curatorsearch.com/developers
+    baseURL: https://curatorsearch.com
+    tags:
+      - agent-native
+      - mcp
+      - openapi
+      - llms-txt
+      - open-data
+      - jobs
+      - cultural-heritage
+      - museums
+      - curatorial
+      - salary-transparency
+      - glam
+    properties:
+      - type: OpenAPI
+        url: https://curatorsearch.com/openapi.json
+      - type: Documentation
+        url: https://curatorsearch.com/developers
+      - type: MCPServer
+        url: https://curatorsearch.com/mcp
+      - type: LLMsTxt
+        url: https://curatorsearch.com/llms.txt
+      - type: LLMsTxt
+        url: https://curatorsearch.com/llms-full.txt
+maintainers:
+  - FN: Nadim Samman
+    url: https://curatorsearch.com
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 97
+  at: '2026-09-19T20:51:32.387Z'
