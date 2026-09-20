@@ -1,0 +1,13 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/developers#access
+limit_count: 0
+limits: []
+response_headers: []
+exhaustion_status: null
+note: >-
+  The developer docs state the API is "rate-limited per client" but publish no numeric limit, no
+  window, no burst, and no runtime signalling headers (no X-RateLimit-*, RateLimit-*, or Retry-After
+  documented), and none were observed on live unauthenticated responses. Recorded as limit_count 0 —
+  an honest zero: a limit exists but is undocumented, so an agent cannot plan against it. A per-call
+  result cap of 20 rows applies to search (see conventions/curatorsearch-conventions.yml).

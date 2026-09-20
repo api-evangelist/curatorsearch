@@ -1,0 +1,35 @@
+generated: '2026-09-20'
+method: derived
+source: openapi/curatorsearch-openapi.json
+description: >-
+  Entity graph derived from the OpenAPI 3.1 contract. The API exposes a single first-class entity
+  (Job) plus an untyped salary-observation record returned by the archive endpoint.
+entities:
+  - name: Job
+    schema: "#/components/schemas/Job"
+    identifier: url (canonical listing page); slug is the path key for getJob
+    fields:
+      - {name: title, type: string}
+      - {name: institution, type: string}
+      - {name: location, type: "string|null"}
+      - {name: category, type: string, note: closed enum (10 values)}
+      - {name: region, type: string, note: closed enum (8 values)}
+      - {name: salary, type: "string|null", note: exactly as employer stated; null when none}
+      - {name: deadline, type: "date|null"}
+      - {name: posted, type: date}
+      - {name: url, type: uri, note: permanent curatorsearch.com listing page}
+      - {name: description, type: "string|null"}
+      - {name: source, type: uri, note: the institution's original posting}
+  - name: SalaryObservation
+    schema: "GET /data/curatorial-salaries.json items (type object, untyped in spec)"
+    note: >-
+      The salary archive returns an array of objects. The live dataset carries fields such as
+      currency, range, pay period ("per"), category, institution and location, but these are not
+      individually declared in the OpenAPI schema.
+relationships:
+  - {from: Job, to: institution, kind: belongs_to, via: institution, note: institution is a string label, not a linked entity}
+  - {from: Job, to: source, kind: references, via: source, note: outbound link to the original institutional posting}
+  - {from: SalaryObservation, to: Job, kind: derived_from, via: listing, note: observations are extracted from postings; no explicit foreign key in the contract}
+note: >-
+  Flat model — Job is standalone with no nested $ref relationships. The category/region enums provide
+  the primary faceting dimensions; institution is a free-text label rather than a normalized entity.

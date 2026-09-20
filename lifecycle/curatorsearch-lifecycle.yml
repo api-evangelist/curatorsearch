@@ -1,0 +1,26 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/developers + openapi/curatorsearch-openapi.json
+versioning:
+  scheme: openapi-info-version
+  current: 1.0.0
+  in_path: false
+  docs: https://curatorsearch.com/developers
+  note: >-
+    Version is carried only in the OpenAPI info.version (1.0.0). No URL-path or header versioning and
+    no dated version policy is published.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy or RFC 8594 Sunset/Deprecation header support is documented. Closed job
+    listings remain online permanently marked as closed, so listing URLs do not rot.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+changelog: null
+deprecated_operations: []
+note: >-
+  Small, single-maintainer public service. No published status page, SLA, deprecation policy or dated
+  changelog were found — recorded as honest absences. Data freshness is stated instead: the board is
+  refreshed daily and the salary archive grows daily with a permanent DOI snapshot.

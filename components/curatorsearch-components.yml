@@ -1,0 +1,17 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/embed
+description: >-
+  Client-side embeddable surfaces CuratorSearch offers for third-party sites. Distinct from SDKs —
+  these are drop-in display widgets, not client libraries.
+components:
+  - name: Live badge
+    family: embed
+    kind: embeddable-widget
+    url: https://curatorsearch.com/embed
+    description: >-
+      A live badge any site can embed showing either the current open-roles count or the sector
+      pay-transparency rate, updating from the live board.
+note: >-
+  No JavaScript SDK, web-component library, or hosted dashboard component was found — only the single
+  embeddable badge. RSS (feed.xml) and the datasets are covered separately.

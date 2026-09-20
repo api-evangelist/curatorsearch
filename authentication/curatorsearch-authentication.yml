@@ -1,0 +1,22 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/developers
+docs: https://curatorsearch.com/developers#access
+summary:
+  types: [none]
+  public_access: keyless
+  api_key_in: []
+  oauth2_flows: []
+note: >-
+  The public JSON API and the MCP server are keyless (no authentication key). The provider asks
+  callers to send a descriptive User-Agent header identifying their project, but this is a courtesy
+  request, not an enforced credential. The OpenAPI 3.1 contract declares no securitySchemes, matching
+  the keyless model. CORS is open. A separate keyed partner feed exists for bulk/scraping needs and is
+  granted on request (email support@curatorsearch.com, subject "Partner feed"); its credentials are
+  not publicly documented.
+schemes: []
+partner_feed:
+  gated: true
+  access: on request
+  contact: support@curatorsearch.com
+  note: Credentials and scheme not publicly documented.

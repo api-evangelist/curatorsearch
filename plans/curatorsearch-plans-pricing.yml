@@ -1,0 +1,15 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/developers + https://curatorsearch.com/post-a-job
+plan_count: 0
+plans: []
+note: >-
+  The public JSON API, MCP server, feeds and open datasets are free and keyless — there is no tiered
+  API pricing to record. Two commercial surfaces exist but neither is an API plan: (1) employer job
+  postings at EUR 100 for 30 days (a listing product, not API access — https://curatorsearch.com/post-a-job);
+  (2) a keyed partner feed for bulk/scraping needs, priced on request via support@curatorsearch.com
+  (sales-gated, no published tiers). Recorded as plan_count 0 because the API itself publishes no plans.
+partner_feed:
+  access: on request
+  contact: support@curatorsearch.com
+  published_price: null

@@ -1,0 +1,61 @@
+generated: '2026-09-20'
+method: searched
+source: https://curatorsearch.com/developers + openapi/curatorsearch-openapi.json
+description: >-
+  Cross-cutting runtime semantics for the CuratorSearch API, derived from the OpenAPI 3.1 contract
+  and the developer/access documentation.
+authentication:
+  style: none (keyless)
+  courtesy: descriptive User-Agent header requested
+  note: See authentication/curatorsearch-authentication.yml
+pagination:
+  style: limit-only
+  params:
+    - {name: limit, in: query, min: 1, max: 20, default: 10}
+  response_fields:
+    - {name: total, meaning: total matching live roles, may exceed returned count}
+    - {name: results, meaning: array of Job objects, newest first}
+  cursor: false
+  note: >-
+    Single-call result cap of 20; no cursor/offset/page parameter is documented, so the API surfaces
+    the newest matches rather than a fully paginable archive. total lets a caller see how many roles
+    matched beyond the returned slice.
+filtering:
+  params: [q, category, region]
+  note: q is free text; category and region are closed enums declared in the OpenAPI.
+error_envelope:
+  shape: plain HTTP status
+  problem_json: false
+  note: getJob returns 404 for an unknown slug; no application/problem+json envelope is declared.
+  cross_link: errors/curatorsearch-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  note: >-
+    "Rate-limited per client" is stated but no numeric limits or response headers
+    (X-RateLimit-*, RateLimit-*, Retry-After) are published. See rate-limits/curatorsearch-rate-limits.yml
+versioning:
+  scheme: info.version in the OpenAPI (1.0.0)
+  in_path: false
+  note: No URL/header versioning; no dated changelog published. See lifecycle/curatorsearch-lifecycle.yml
+attribution:
+  required: true
+  note: >-
+    CC BY 4.0 for datasets; cite as "CuratorSearch, curatorsearch.com". Every API result carries an
+    attribution string and a url to the canonical listing page; the provider asks consumers to link to
+    the role page rather than republish the description text.
+idempotency:
+  coverage: na
+  scope: []
+  note: >-
+    Read-only API — every operation is a GET (searchJobs, getJob, salaryArchive). There is no mutating
+    surface, so replay-protection (Idempotency-Key) is not applicable. The MCP tools are all annotated
+    readOnlyHint:true / idempotentHint:true.
+reversibility:
+  applicable: false
+  grade: na
+  note: >-
+    Read-only API with no write, create, delete or state-changing operation, so there is nothing to
+    reverse. cancel/refund/void/undo are all na.
+dry_run_mode:
+  applicable: false
+  note: na — read-only API.

@@ -3,9 +3,10 @@ description: >-
   An independent, daily-refreshed record of museum/gallery/curatorial vacancies and advertised salaries, aggregated from
   400+ institutions' careers pages. Exposes a keyless REST/JSON API, an OpenAPI 3.1 contract, a hosted MCP server,
   llms.txt, open datasets (CC BY 4.0, with DOI), and RSS.
+image: https://curatorsearch.com/icon.png
 url: https://raw.githubusercontent.com/api-evangelist/curatorsearch/refs/heads/main/apis.yml
 created: '2026-09-19'
-modified: '2026-09-19'
+modified: '2026-09-20'
 specificationVersion: '0.21'
 tags:
   - agent-native
@@ -35,6 +36,7 @@ apis:
       plus the full advertised-salary archive. Documented via a live OpenAPI 3.1 contract.
     humanURL: https://curatorsearch.com/developers
     baseURL: https://curatorsearch.com
+    image: https://curatorsearch.com/icon.png
     tags:
       - agent-native
       - mcp
@@ -58,22 +60,82 @@ apis:
       - RSS
     properties:
       - type: OpenAPI
+        url: openapi/curatorsearch-openapi.json
+      - type: OpenAPI
+        name: OpenAPI (provider-hosted)
         url: https://curatorsearch.com/openapi.json
       - type: Documentation
         url: https://curatorsearch.com/developers
       - type: MCPServer
+        url: mcp/curatorsearch-mcp.yml
+      - type: MCPServer
+        name: MCP endpoint (hosted)
         url: https://curatorsearch.com/mcp
       - type: LLMsTxt
+        url: llms/curatorsearch-llms.txt
+      - type: LLMsTxt
+        name: llms.txt (provider-hosted)
         url: https://curatorsearch.com/llms.txt
       - type: LLMsTxt
+        name: llms-full.txt (provider-hosted)
         url: https://curatorsearch.com/llms-full.txt
 maintainers:
   - FN: Nadim Samman
+    email: support@curatorsearch.com
     url: https://curatorsearch.com
+    X-orcid: https://orcid.org/0009-0001-5801-4662
   - FN: Nadim Samman
     url: https://orcid.org/0009-0001-5801-4662
-generated:
+x-generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 97
   at: '2026-09-19T20:58:51.207Z'
+common:
+  - type: Website
+    url: https://curatorsearch.com
+  - type: DeveloperPortal
+    url: https://curatorsearch.com/developers
+  - type: Documentation
+    url: https://curatorsearch.com/developers
+  - type: Support
+    url: https://curatorsearch.com/about
+  - type: TermsOfService
+    url: https://curatorsearch.com/developers#attribution
+  - type: PrivacyPolicy
+    url: https://curatorsearch.com/privacy
+  - type: WellKnown
+    url: well-known/curatorsearch-well-known.yml
+  - type: Authentication
+    url: authentication/curatorsearch-authentication.yml
+  - type: Conventions
+    url: conventions/curatorsearch-conventions.yml
+  - type: Lifecycle
+    url: lifecycle/curatorsearch-lifecycle.yml
+  - type: Conformance
+    url: conformance/curatorsearch-conformance.yml
+  - type: ErrorCatalog
+    url: errors/curatorsearch-problem-types.yml
+  - type: DataModel
+    url: data-model/curatorsearch-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Overlay
+    url: overlays/curatorsearch-openapi-overlay.yaml
+  - type: Components
+    url: components/curatorsearch-components.yml
+  - type: Plans
+    url: plans/curatorsearch-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/curatorsearch-rate-limits.yml
+  - type: DomainSecurity
+    url: security/curatorsearch-domain-security.yml
+  - type: ToolCrosswalk
+    url: mcp/curatorsearch-tool-crosswalk.yml
+  - type: RSS
+    url: https://curatorsearch.com/feed.xml
+x-enrichment:
+  date: '2026-09-20'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v3

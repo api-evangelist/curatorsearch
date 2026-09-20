@@ -1,0 +1,215 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CuratorSearch",
+    "version": "1.0.0",
+    "description": "Live museum, gallery and curatorial job listings, gathered daily from institutions' own career pages, plus the advertised-salary archive. Every result links to its page on curatorsearch.com. Cite as \"CuratorSearch, curatorsearch.com\"."
+  },
+  "servers": [
+    {
+      "url": "https://curatorsearch.com"
+    }
+  ],
+  "paths": {
+    "/api/jobs": {
+      "get": {
+        "operationId": "searchJobs",
+        "summary": "Search live museum and curatorial jobs",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Free text matched against title, institution and location, e.g. 'curator Berlin'."
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Leadership",
+                "Curatorial",
+                "Education & Public Programmes",
+                "Archives",
+                "Collections",
+                "Conservation",
+                "Intern & Fellowship",
+                "Open Call & Residency",
+                "Production",
+                "Other"
+              ]
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "North America",
+                "UK & Ireland",
+                "Europe",
+                "Asia-Pacific",
+                "Middle East",
+                "Latin America",
+                "Africa",
+                "International"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching live roles, newest first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Job"
+                      }
+                    },
+                    "attribution": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/jobs/{slug}": {
+      "get": {
+        "operationId": "getJob",
+        "summary": "One listing with its description",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The listing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Job"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No such listing"
+          }
+        }
+      }
+    },
+    "/data/curatorial-salaries.json": {
+      "get": {
+        "operationId": "salaryArchive",
+        "summary": "Every advertised salary the board has recorded, exactly as published (CC BY 4.0)",
+        "responses": {
+          "200": {
+            "description": "Salary observations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Job": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "institution": {
+            "type": "string"
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "salary": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Exactly as the employer stated it; null when the posting states none."
+          },
+          "deadline": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "posted": {
+            "type": "string",
+            "format": "date"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The listing's page on curatorsearch.com."
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "format": "uri",
+            "description": "The institution's original posting."
+          }
+        }
+      }
+    }
+  }
+}

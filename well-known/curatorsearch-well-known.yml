@@ -1,0 +1,31 @@
+generated: '2026-09-20'
+method: probed
+source: live GET probes of the /.well-known/ surface
+note: >-
+  One host serves this provider — curatorsearch.com is simultaneously the registrable domain, the
+  API baseURL host, the OpenAPI servers[] host, the docs host and the MCP server host (the MCP
+  endpoint is a path, https://curatorsearch.com/mcp; mcp.curatorsearch.com does not resolve/NXDOMAIN).
+  The only well-known document served is /.well-known/apis.json — a real, parsing APIs.json Index
+  (content-type application/apis+json) listing the OpenAPI, MCP endpoint, feeds, datasets and licence.
+  Saved verbatim as curatorsearch-apis.json. All OAuth/OIDC/security.txt/api-catalog/ai-plugin paths
+  404, which is correct for a keyless, read-only public API with no OAuth surface.
+hosts:
+  - host: https://curatorsearch.com
+    documents:
+      - path: /.well-known/apis.json
+        status: 200
+        file: curatorsearch-apis.json
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /apis.json
+        status: 404

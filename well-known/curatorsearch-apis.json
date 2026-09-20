@@ -1,0 +1,152 @@
+{
+  "aid": "com.curatorsearch",
+  "name": "CuratorSearch",
+  "description": "An independent record of museum and curatorial employment: vacancies gathered daily from 400+ institutions' own careers pages, and every advertised salary kept permanently.",
+  "image": "https://curatorsearch.com/icon.png",
+  "url": "https://curatorsearch.com/.well-known/apis.json",
+  "created": "2026-09-19",
+  "modified": "2026-09-19",
+  "specificationVersion": "0.23",
+  "type": "Index",
+  "tags": [
+    "Museum Jobs",
+    "Curatorial",
+    "Cultural Heritage",
+    "Salaries",
+    "Pay Transparency",
+    "Job Board",
+    "Open Data",
+    "MCP"
+  ],
+  "apis": [
+    {
+      "aid": "com.curatorsearch:jobs",
+      "name": "CuratorSearch Jobs API",
+      "description": "Museum, gallery and curatorial vacancies gathered daily from 400+ institutions' own careers pages. Read-only, no key, CORS open. Every record links to its page on curatorsearch.com.",
+      "humanURL": "https://curatorsearch.com/developers",
+      "baseURL": "https://curatorsearch.com/api",
+      "tags": [
+        "Jobs",
+        "Museums",
+        "Search"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://curatorsearch.com/openapi.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://curatorsearch.com/developers"
+        },
+        {
+          "type": "MCPServer",
+          "url": "https://curatorsearch.com/mcp"
+        },
+        {
+          "type": "Authentication",
+          "url": "https://curatorsearch.com/developers#access"
+        },
+        {
+          "type": "RateLimits",
+          "url": "https://curatorsearch.com/developers#access"
+        },
+        {
+          "type": "RSS",
+          "url": "https://curatorsearch.com/feed.xml"
+        },
+        {
+          "type": "TermsOfService",
+          "url": "https://curatorsearch.com/developers#attribution"
+        }
+      ]
+    },
+    {
+      "aid": "com.curatorsearch:salaries",
+      "name": "Curatorial Pay Archive",
+      "description": "Every salary advertised in museum and curatorial job postings since August 2026, exactly as published: currency, range, pay period, category, institution and location. CC BY 4.0, citable by DOI.",
+      "humanURL": "https://curatorsearch.com/salaries",
+      "baseURL": "https://curatorsearch.com/data",
+      "tags": [
+        "Salaries",
+        "Pay Transparency",
+        "Dataset",
+        "Open Data"
+      ],
+      "properties": [
+        {
+          "type": "OpenAPI",
+          "url": "https://curatorsearch.com/openapi.json"
+        },
+        {
+          "type": "Documentation",
+          "url": "https://curatorsearch.com/salaries#methodology"
+        },
+        {
+          "type": "CSV",
+          "url": "https://curatorsearch.com/data/curatorial-salaries.csv"
+        },
+        {
+          "type": "JSON",
+          "url": "https://curatorsearch.com/data/curatorial-salaries.json"
+        },
+        {
+          "type": "DOI",
+          "url": "https://doi.org/10.5281/zenodo.22544232"
+        },
+        {
+          "type": "Repository",
+          "url": "https://github.com/nsamman/curatorsearch-salary-archive"
+        },
+        {
+          "type": "Mirror",
+          "url": "https://doi.org/10.6084/m9.figshare.33441544"
+        },
+        {
+          "type": "Mirror",
+          "url": "https://huggingface.co/datasets/curatorsearch/curatorial-pay-archive"
+        },
+        {
+          "type": "License",
+          "name": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+      ]
+    }
+  ],
+  "common": [
+    {
+      "type": "Documentation",
+      "url": "https://curatorsearch.com/developers"
+    },
+    {
+      "type": "LLMsTxt",
+      "url": "https://curatorsearch.com/llms.txt"
+    },
+    {
+      "type": "LLMsTxtFull",
+      "url": "https://curatorsearch.com/llms-full.txt"
+    },
+    {
+      "type": "Contact",
+      "url": "https://curatorsearch.com/about"
+    },
+    {
+      "type": "Privacy",
+      "url": "https://curatorsearch.com/privacy"
+    },
+    {
+      "type": "License",
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "maintainers": [
+    {
+      "FN": "Nadim Samman",
+      "email": "support@curatorsearch.com",
+      "url": "https://curatorsearch.com/about",
+      "X-orcid": "https://orcid.org/0009-0001-5801-4662"
+    }
+  ]
+}

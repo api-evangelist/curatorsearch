@@ -1,0 +1,19 @@
+generated: '2026-09-20'
+method: searched
+source: >-
+  https://curatorsearch.com/privacy, https://curatorsearch.com/about,
+  https://curatorsearch.com/developers, well-known/ probes
+description: >-
+  Horizontal regulatory-posture harvest for CuratorSearch. Signals are recorded only where a page
+  carries the actual substance, never where a word merely appears. An empty signals set is the
+  expected, correct result for a small independent public job board.
+signals: {}
+probes:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /privacy, status: 200, note: "privacy policy present (feeds discoverability, not a horizontal regime signal on its own)"}
+  - {path: /about, status: 200}
+notes: >-
+  No SBOM, VPAT/accessibility-conformance report, dated subprocessor table, AI-transparency page,
+  data-residency statement, or transparency report was found. The provider does publish a privacy
+  policy and a CC BY 4.0 open-data licence with DOI-backed archives, but none of these map to a
+  horizontal regulatory-regime signal in the controlled vocabulary. Recorded as an honest absence.

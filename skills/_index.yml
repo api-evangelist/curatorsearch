@@ -1,0 +1,14 @@
+generated: '2026-09-20'
+method: generated
+source: openapi/curatorsearch-openapi.json + mcp/curatorsearch-mcp.yml
+skills:
+  - name: find-museum-jobs
+    file: curatorsearch-find-museum-jobs.md
+    description: Search live museum, gallery and curatorial vacancies and pull one listing in full.
+    operations: [searchJobs, getJob]
+    mcp_tools: [search_jobs, get_job, institution_jobs]
+  - name: check-pay-transparency
+    file: curatorsearch-check-pay-transparency.md
+    description: Retrieve the live pay-transparency figure and the full advertised-salary archive.
+    operations: [salaryArchive]
+    mcp_tools: [salary_transparency]

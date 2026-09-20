@@ -1,0 +1,12 @@
+generated: '2026-09-20'
+method: derived
+source: openapi/curatorsearch-openapi.json
+format: http-status
+note: >-
+  Derived from the OpenAPI 3.1 contract. The API returns plain HTTP status codes with no
+  application/problem+json (RFC 9457) envelope. Only one non-2xx response is declared in the spec.
+problems:
+  - status: 404
+    title: No such listing
+    description: Returned by GET /api/jobs/{slug} when the requested slug does not match any listing.
+    source_operation: openapi/curatorsearch-openapi.json#getJob

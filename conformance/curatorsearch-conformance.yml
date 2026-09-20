@@ -1,0 +1,45 @@
+generated: '2026-09-20'
+method: searched
+source: >-
+  openapi/curatorsearch-openapi.json, well-known/curatorsearch-apis.json, live listing-page JSON-LD,
+  data/curatorial-salaries.json
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: openapi/curatorsearch-openapi.json declares openapi 3.1.0 with paths + components.schemas
+  - id: apis-json
+    conforms: true
+    evidence: >-
+      /.well-known/apis.json is a valid APIs.json Index (content-type application/apis+json,
+      specificationVersion 0.23) listing OpenAPI, MCP, feeds and datasets — saved as
+      well-known/curatorsearch-apis.json
+  - id: schema-org-jobposting
+    conforms: true
+    domain_standard: true
+    evidence: >-
+      Listing pages embed schema.org JobPosting JSON-LD (verified live on
+      /opportunities/<slug>), including structured salary data where available. This is the domain
+      standard for job boards — an aggregator that consumes it, or a search engine indexing it,
+      integrates with no bespoke connector.
+  - id: datacite-doi
+    conforms: true
+    domain_standard: true
+    evidence: >-
+      The Curatorial Pay Archive publishes a DataCite DOI (10.5281/zenodo.22544232) that resolves to
+      the newest snapshot, and a companion data-note DOI (10.5281/zenodo.22791747). The DOI is carried
+      in both /.well-known/apis.json and the dataset JSON ("doi" field) — the persistent-identifier
+      standard for citable open research data.
+  - id: cc-by-4.0
+    conforms: true
+    evidence: Datasets licensed CC BY 4.0 (declared in apis.json and dataset JSON license field).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are plain HTTP status codes; no application/problem+json envelope is declared.
+  - id: oauth2
+    conforms: false
+    evidence: Keyless public API; the OpenAPI declares no securitySchemes.
+note: >-
+  No enterprise compliance certifications (SOC 2, ISO 27001, PCI DSS, HIPAA, FedRAMP) are published —
+  expected for a small independent public service — so no Compliance pointer is emitted. The
+  domain-standard signatures that DO apply (schema.org JobPosting, DataCite DOI) were verified against
+  the live surface, not inferred from marketing prose.

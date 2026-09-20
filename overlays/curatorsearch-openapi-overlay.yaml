@@ -1,0 +1,29 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for CuratorSearch
+  version: 1.0.0
+extends: openapi/curatorsearch-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: curatorsearch
+      x-apievangelist-agent-native: true
+      x-apievangelist-surfaces:
+        openapi: https://curatorsearch.com/openapi.json
+        mcp: https://curatorsearch.com/mcp
+        llms_txt: https://curatorsearch.com/llms.txt
+        apis_json: https://curatorsearch.com/.well-known/apis.json
+        rss: https://curatorsearch.com/feed.xml
+        salary_archive_json: https://curatorsearch.com/data/curatorial-salaries.json
+        salary_archive_doi: https://doi.org/10.5281/zenodo.22544232
+  - target: $.paths['/api/jobs'].get
+    update:
+      x-mcp-tool: search_jobs
+      x-rate-limit: per-client (undocumented numeric limit); max 20 results per call
+  - target: $.paths['/api/jobs/{slug}'].get
+    update:
+      x-mcp-tool: get_job
+  - target: $.paths['/data/curatorial-salaries.json'].get
+    update:
+      x-mcp-tool: salary_transparency (computed aggregate)
+      x-license: CC BY 4.0

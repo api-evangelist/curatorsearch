@@ -1,0 +1,63 @@
+generated: '2026-09-20'
+method: searched
+status: published
+source: https://curatorsearch.com/mcp
+description: >-
+  Official hosted MCP server for CuratorSearch. Stateless Streamable HTTP (POST) endpoint on the
+  provider's primary domain, no key required. Live tools/list retrieved anonymously and saved
+  verbatim to mcp/curatorsearch-mcp-tools-list.json.
+deployment:
+  mode: remote
+  endpoint: https://curatorsearch.com/mcp
+  auth: none
+  verified: probed
+server:
+  name: curatorsearch
+  transport: http
+  url: https://curatorsearch.com/mcp
+  authentication: none
+  notes: >-
+    POST-only stateless Streamable HTTP. tools/list returned HTTP 200 with four read-only tools,
+    each carrying a real inputSchema (and outputSchema). All tools are annotated readOnlyHint:true,
+    destructiveHint:false, idempotentHint:true.
+tools:
+  - name: search_jobs
+    description: >-
+      Search live museum, gallery and curatorial job listings, gathered daily from institutions' own
+      career pages. Returns up to 20 roles, newest first, each with its curatorsearch.com page.
+    read_only: true
+    input:
+      - {name: query, type: string, required: false, description: "Free text matched against title, institution and location."}
+      - {name: category, type: string, required: false, description: "One field of work (enum: Leadership, Curatorial, Education & Public Programmes, Archives, Collections, Conservation, Intern & Fellowship, Open Call & Residency, Production, Other)."}
+      - {name: region, type: string, required: false, description: "One world region (enum: North America, UK & Ireland, Europe, Asia-Pacific, Middle East, Latin America, Africa, International)."}
+      - {name: limit, type: integer, required: false, description: "How many roles to return, 1 to 20. Defaults to 10."}
+    source_operation: openapi/curatorsearch-openapi.json#searchJobs
+  - name: get_job
+    description: >-
+      One listing in full: description, stated salary, deadline, and the institution's original
+      posting URL. Takes the slug from a curatorsearch.com/opportunities/<slug> URL.
+    read_only: true
+    input:
+      - {name: slug, type: string, required: true, description: "The listing's slug, or the whole curatorsearch.com/opportunities/<slug> URL."}
+    source_operation: openapi/curatorsearch-openapi.json#getJob
+  - name: institution_jobs
+    description: Every role one museum or gallery currently has open on the board, by institution name.
+    read_only: true
+    input:
+      - {name: institution, type: string, required: true, description: "The institution's name, e.g. 'Philadelphia Museum of Art'. Near-misses resolve."}
+    source_operation: null
+    notes: No dedicated public REST operation; server-side filtered view of the live board.
+  - name: salary_transparency
+    description: >-
+      How many live museum and curatorial postings state a salary, and the median advertised figure
+      among those that do -- the CuratorSearch Curatorial Pay Archive headline number, computed live.
+    read_only: true
+    input: []
+    source_operation: openapi/curatorsearch-openapi.json#salaryArchive
+    notes: Computed aggregate over the salary archive; not a 1:1 projection of the raw REST array.
+x-evidence:
+  fetched: '2026-09-20'
+  url: https://curatorsearch.com/mcp
+  method: POST tools/list (jsonrpc 2.0)
+  http_status: 200
+  content_type: application/json
