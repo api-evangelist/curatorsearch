@@ -10,6 +10,24 @@ modified: '2026-09-20'
 specificationVersion: '0.21'
 tags:
   - agent-native
+  - MCP
+  - OpenAPI
+  - llms-txt
+  - Open Data
+  - Job
+  - Cultural Heritage
+  - Museums
+  - curatorial
+  - salary-transparency
+  - glam
+  - museum jobs
+  - Job Board
+  - Salaries
+  - Pay Transparency
+  - Datasets
+  - RSS
+tags_raw:
+  - agent-native
   - mcp
   - openapi
   - llms-txt
@@ -38,6 +56,24 @@ apis:
     baseURL: https://curatorsearch.com
     image: https://curatorsearch.com/icon.png
     tags:
+      - agent-native
+      - MCP
+      - OpenAPI
+      - llms-txt
+      - Open Data
+      - Job
+      - Cultural Heritage
+      - Museums
+      - curatorial
+      - salary-transparency
+      - glam
+      - museum jobs
+      - Job Board
+      - Salaries
+      - Pay Transparency
+      - Datasets
+      - RSS
+    tags_raw:
       - agent-native
       - mcp
       - openapi
