@@ -1,0 +1,25 @@
+openapi: 3.2.0
+info:
+  title: CuratorSearch Data API
+  version: 1.0.0
+  description: Live museum, gallery and curatorial job listings, gathered daily from institutions' own career pages, plus the advertised-salary archive. Every result links to its page on curatorsearch.com. Cite as "CuratorSearch, curatorsearch.com".
+servers:
+- url: https://curatorsearch.com
+tags:
+- name: Data
+paths:
+  /data/curatorial-salaries.json:
+    get:
+      operationId: salaryArchive
+      summary: Every advertised salary the board has recorded, exactly as published (CC BY 4.0)
+      responses:
+        '200':
+          description: Salary observations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+      tags:
+      - Data

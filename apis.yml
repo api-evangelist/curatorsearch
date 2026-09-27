@@ -9,7 +9,7 @@ created: '2026-09-19'
 modified: '2026-09-20'
 specificationVersion: '0.21'
 tags:
-  - agent-native
+  - Agent-Native
   - MCP
   - OpenAPI
   - llms-txt
@@ -48,73 +48,40 @@ tags_raw:
   - MCP
   - RSS
 apis:
-  - name: CuratorSearch API
-    description: >-
-      Keyless, read-only REST/JSON API for searching museum/curatorial vacancies and retrieving individual listings,
-      plus the full advertised-salary archive. Documented via a live OpenAPI 3.1 contract.
-    humanURL: https://curatorsearch.com/developers
-    baseURL: https://curatorsearch.com
-    image: https://curatorsearch.com/icon.png
-    tags:
-      - agent-native
-      - MCP
-      - OpenAPI
-      - llms-txt
-      - Open Data
-      - Job
-      - Cultural Heritage
-      - Museums
-      - curatorial
-      - salary-transparency
-      - glam
-      - museum jobs
-      - Job Board
-      - Salaries
-      - Pay Transparency
-      - Datasets
-      - RSS
-    tags_raw:
-      - agent-native
-      - mcp
-      - openapi
-      - llms-txt
-      - open-data
-      - jobs
-      - cultural-heritage
-      - museums
-      - curatorial
-      - salary-transparency
-      - glam
-      - museum jobs
-      - cultural heritage
-      - job board
-      - salaries
-      - pay transparency
-      - open data
-      - dataset
-      - MCP
-      - RSS
-    properties:
-      - type: OpenAPI
-        url: openapi/curatorsearch-openapi.json
-      - type: OpenAPI
-        name: OpenAPI (provider-hosted)
-        url: https://curatorsearch.com/openapi.json
-      - type: Documentation
-        url: https://curatorsearch.com/developers
-      - type: MCPServer
-        url: mcp/curatorsearch-mcp.yml
-      - type: MCPServer
-        name: MCP endpoint (hosted)
-        url: https://curatorsearch.com/mcp
-      - type: LLMsTxt
-        url: llms/curatorsearch-llms.txt
-      - type: LLMsTxt
-        name: llms.txt (provider-hosted)
-        url: https://curatorsearch.com/llms.txt
-      - type: LLMsTxt
-        name: llms-full.txt (provider-hosted)
-        url: https://curatorsearch.com/llms-full.txt
+- aid: curatorsearch:curatorsearch-data-api
+  name: CuratorSearch Data API
+  description: The Data API from CuratorSearch — 1 operation(s) for data.
+  humanURL: https://curatorsearch.com/developers
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/curatorsearch-data-api-openapi.yml
+  - type: Documentation
+    url: https://curatorsearch.com/developers
+  - type: LLMsTxt
+    url: llms/curatorsearch-llms.txt
+  - type: LLMsTxt
+    url: https://curatorsearch.com/llms.txt
+  - type: LLMsTxt
+    url: https://curatorsearch.com/llms-full.txt
+- aid: curatorsearch:curatorsearch-jobs-api
+  name: CuratorSearch Jobs API
+  description: The Jobs API from CuratorSearch — 2 operation(s) for jobs.
+  humanURL: https://curatorsearch.com/developers
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/curatorsearch-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://curatorsearch.com/developers
+  - type: LLMsTxt
+    url: llms/curatorsearch-llms.txt
+  - type: LLMsTxt
+    url: https://curatorsearch.com/llms.txt
+  - type: LLMsTxt
+    url: https://curatorsearch.com/llms-full.txt
 maintainers:
   - FN: Nadim Samman
     email: support@curatorsearch.com
@@ -128,6 +95,10 @@ x-generated:
   confidence: 97
   at: '2026-09-19T20:58:51.207Z'
 common:
+  - type: MCPServer
+    url: mcp/curatorsearch-mcp.yml
+  - type: MCPServer
+    url: https://curatorsearch.com/mcp
   - type: Website
     url: https://curatorsearch.com
   - type: DeveloperPortal

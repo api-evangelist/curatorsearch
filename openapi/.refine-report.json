@@ -1,0 +1,25 @@
+{
+  "provider": "curatorsearch",
+  "sources": [
+    "curatorsearch-openapi.json"
+  ],
+  "outputs": [
+    "curatorsearch-data-api-openapi.yml",
+    "curatorsearch-jobs-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/curatorsearch-openapi.json"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "curatorsearch-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "curatorsearch-openapi.json: tagged paths GET /api/jobs -> Jobs",
+    "curatorsearch-openapi.json: tagged paths GET /api/jobs/{slug} -> Jobs",
+    "curatorsearch-openapi.json: tagged paths GET /data/curatorial-salaries.json -> Data",
+    "curatorsearch-openapi.json: declared missing tag: Data",
+    "curatorsearch-openapi.json: declared missing tag: Jobs",
+    "apis.yml register: written (+2 apis, 2 total)"
+  ],
+  "skipped": []
+}
