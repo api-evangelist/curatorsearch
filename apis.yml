@@ -70,6 +70,8 @@ apis:
   description: The Jobs API from CuratorSearch — 2 operation(s) for jobs.
   humanURL: https://curatorsearch.com/developers
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -95,6 +97,9 @@ x-generated:
   confidence: 97
   at: '2026-09-19T20:58:51.207Z'
 common:
+  - type: CapabilityMap
+    url: capabilities/curatorsearch-capability-edges.yml
+    name: CuratorSearch Business Capability Map
   - type: MCPServer
     url: mcp/curatorsearch-mcp.yml
   - type: MCPServer
