@@ -1,0 +1,14 @@
+{
+  "repo": "curatorsearch",
+  "feeds": [
+    {
+      "source": "https://curatorsearch.com/feed.xml",
+      "feed_url": "https://curatorsearch.com/feed.xml",
+      "title": "",
+      "saved": 5,
+      "method": "feed"
+    }
+  ],
+  "post_count": 5,
+  "fetched": "2026-10-10T13:15:00Z"
+}
